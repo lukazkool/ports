@@ -1,0 +1,17 @@
+{
+  "name": "Slime Rancher",
+  "short_name": "Slime Rancher",
+  "start_url": "/play/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#61c79c",
+  "theme_color": "#61c79c",
+  "icons": [
+    {
+      "src": "/play/TemplateData/iconSlimeSnubs.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ]
+}

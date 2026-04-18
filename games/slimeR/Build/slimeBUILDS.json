@@ -1,0 +1,11 @@
+{
+"companyName": "Snubs",
+"productName": "Slime Rancher Web",
+"dataUrl": "slimeBUILDS.data.unityweb",
+"wasmCodeUrl": "slimeBUILDS.wasm.code.unityweb",
+"wasmFrameworkUrl": "slimeBUILDS.wasm.framework.unityweb",
+"TOTAL_MEMORY": 251658240,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark"
+}
