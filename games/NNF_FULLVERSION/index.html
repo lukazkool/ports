@@ -378,12 +378,18 @@
     </div>
 
     <script>
-      window.setAddAsyncMethod = function(){
-          console.warn("[GX PATCH] setAddAsyncMethod stubbed");
+      // GX fallback stubs
+      window.g_pWadLoadCallback = function(){
+          console.warn("[GX PATCH] g_pWadLoadCallback called (ignored)");
       };
 
-      window.setWadLoadCallback = function(){
+      window.setWadLoadCallback = function(fn){
           console.warn("[GX PATCH] setWadLoadCallback stubbed");
+          window.g_pWadLoadCallback = fn || function(){};
+      };
+
+      window.setAddAsyncMethod = function(){
+          console.warn("[GX PATCH] setAddAsyncMethod stubbed");
       };
     </script>
 
