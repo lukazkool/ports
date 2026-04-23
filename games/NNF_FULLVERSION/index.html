@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
+	<script>
+	  	// Intercept BOTH fetch and XHR
+		  const origFetch = window.fetch;
+		  window.fetch = function(resource, options) {
+		    if (typeof resource === "string" && resource.includes("game.unx")) {
+		      console.log("Redirecting fetch → UNX");
+		      resource = TARGET;
+		    }
+		    return origFetch(resource, options);
+		  };
+		
+		  const origOpen = XMLHttpRequest.prototype.open;
+		  XMLHttpRequest.prototype.open = function(method, url) {
+		    if (typeof url === "string" && url.includes("game.unx")) {
+		      console.log("Redirecting XHR → UNX");
+		      url = TARGET;
+		    }
+		    return origOpen.call(this, method, url);
+		  };
+		})();
+	</script>
+	  
     <meta charset="utf-8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
@@ -376,29 +398,6 @@
       <div id="messages">
       </div>
     </div>
-
-	<script>
-		(function() {
-		  const TARGET = "https://github.com/lukazkool/ports/releases/download/NNF_GAME_UNX/game.unx";
-		
-		  const interval = setInterval(() => {
-		    if (window.__gx_cache_file) {
-		      const original = window.__gx_cache_file;
-		
-		      window.__gx_cache_file = function(url) {
-		        if (typeof url === "string" && url.endsWith("game.unx")) {
-		          console.log("Redirecting GX loader to release UNX");
-		          url = TARGET;
-		        }
-		        return original.call(this, url);
-		      };
-		
-		      clearInterval(interval);
-		      console.log("GX override installed");
-		    }
-		  }, 10);
-		})();
-	</script>
 
     <script>
       // GX fallback stubs
