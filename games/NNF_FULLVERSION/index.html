@@ -379,15 +379,24 @@
 
 	<script>
 		(function() {
-		  const ORIGINAL_FETCH = window.fetch;
+		  const TARGET = "https://github.com/lukazkool/ports/releases/download/NNF_GAME_UNX/game.unx";
 		
-		  window.fetch = function(resource, options) {
-		    if (typeof resource === "string" && resource.endsWith("game.unx")) {
-		      console.log("Redirecting game.unx to release URL");
-		      resource = "https://github.com/lukazkool/ports/releases/download/NNF_GAME_UNX/game.unx";
+		  const interval = setInterval(() => {
+		    if (window.__gx_cache_file) {
+		      const original = window.__gx_cache_file;
+		
+		      window.__gx_cache_file = function(url) {
+		        if (typeof url === "string" && url.endsWith("game.unx")) {
+		          console.log("Redirecting GX loader to release UNX");
+		          url = TARGET;
+		        }
+		        return original.call(this, url);
+		      };
+		
+		      clearInterval(interval);
+		      console.log("GX override installed");
 		    }
-		    return ORIGINAL_FETCH(resource, options);
-		  };
+		  }, 10);
 		})();
 	</script>
 
