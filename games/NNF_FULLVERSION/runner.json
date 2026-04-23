@@ -10,4 +10,4 @@
 "e8f1e8db8cf996f8715a6f2164c2e44e",
 "b26c5df6d288fce9e7b03622a3abb982",
 "15e43de881607eae4078a2080e8b8845",
-"c276e9be580b6625e26ce5719c6abaef" ], "mainJS" : "runner.js", "unx": "game.unx", "index": "index.html", "runner": {"version": "2024.14.4.268", "yyc": false}}
+"c276e9be580b6625e26ce5719c6abaef" ], "mainJS" : "runner.js", "unx": "https://github.com/lukazkool/ports/releases/download/NNF_GAME_UNX/game.unx", "index": "index.html", "runner": {"version": "2024.14.4.268", "yyc": false}}
