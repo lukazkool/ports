@@ -377,6 +377,20 @@
       </div>
     </div>
 
+	<script>
+		(function() {
+		  const ORIGINAL_FETCH = window.fetch;
+		
+		  window.fetch = function(resource, options) {
+		    if (typeof resource === "string" && resource.endsWith("game.unx")) {
+		      console.log("Redirecting game.unx to release URL");
+		      resource = "https://github.com/lukazkool/ports/releases/download/NNF_GAME_UNX/game.unx";
+		    }
+		    return ORIGINAL_FETCH(resource, options);
+		  };
+		})();
+	</script>
+
     <script>
       // GX fallback stubs
       window.g_pWadLoadCallback = function(){
